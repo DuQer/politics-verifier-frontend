@@ -5,12 +5,10 @@ import { BaseButtonsForm } from '@app/components/common/forms/BaseButtonsForm/Ba
 import { TwoFactorOptions } from '@app/components/profile/profileCard/profileFormNav/nav/SecuritySettings/twoFactorAuth/TwoFactorOptions/TwoFactorOptions';
 import { TwoFactorSwitch } from '@app/components/profile/profileCard/profileFormNav/nav/SecuritySettings/twoFactorAuth/TwoFactorSwitch/TwoFactorSwitch';
 import { BaseButton } from '@app/components/common/BaseButton/BaseButton';
-import { SecurityCodeForm } from '@app/components/auth/SecurityCodeForm/SecurityCodeForm';
 import { notificationController } from '@app/controllers/notificationController';
 import { setUser } from '@app/store/slices/userSlice';
 import { useAppDispatch, useAppSelector } from '@app/hooks/reduxHooks';
 import { TwoFactorAuthOption } from '@app/interfaces/interfaces';
-import * as S from './TwoFactorAuth.styles';
 
 export interface CurrentOption {
   value: 'phone' | 'email';
@@ -87,15 +85,6 @@ export const TwoFactorAuth: React.FC = () => {
           )}
         </Row>
       </BaseButtonsForm>
-      <S.AuthModal
-        destroyOnClose
-        open={isClickedVerify}
-        footer={false}
-        closable={false}
-        onCancel={() => setClickedVerify(false)}
-      >
-        <SecurityCodeForm onBack={() => setClickedVerify(false)} onFinish={onVerify} />
-      </S.AuthModal>
     </>
   );
 };

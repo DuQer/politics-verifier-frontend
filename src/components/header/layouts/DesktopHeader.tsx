@@ -3,7 +3,6 @@ import { NotificationsDropdown } from '../components/notificationsDropdown/Notif
 import { ProfileDropdown } from '../components/profileDropdown/ProfileDropdown/ProfileDropdown';
 import { HeaderSearch } from '../components/HeaderSearch/HeaderSearch';
 import { SettingsDropdown } from '../components/settingsDropdown/SettingsDropdown';
-import { HeaderFullscreen } from '../components/HeaderFullscreen/HeaderFullscreen';
 import * as S from '../Header.styles';
 import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
 import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
@@ -20,7 +19,6 @@ export const DesktopHeader: React.FC<DesktopHeaderProps> = ({ isTwoColumnsLayout
           <HeaderSearch />
         </BaseCol>
         <BaseCol>
-          <S.GHButton />
         </BaseCol>
       </BaseRow>
     </S.SearchColumn>
@@ -30,7 +28,6 @@ export const DesktopHeader: React.FC<DesktopHeaderProps> = ({ isTwoColumnsLayout
         <HeaderSearch />
       </BaseCol>
       <BaseCol>
-        <S.GHButton />
       </BaseCol>
     </>
   );
@@ -44,7 +41,6 @@ export const DesktopHeader: React.FC<DesktopHeaderProps> = ({ isTwoColumnsLayout
           <BaseCol>
             <BaseRow gutter={[{ xxl: 5 }, { xxl: 5 }]}>
               <BaseCol>
-                <HeaderFullscreen />
               </BaseCol>
 
               <BaseCol>

@@ -20,4 +20,10 @@ export const languages: Language[] = [
     title: 'German',
     countryCode: 'de',
   },
+  {
+    id: 3,
+    name: 'pl',
+    title: 'Polish',
+    countryCode: 'pl',
+  },
 ];
