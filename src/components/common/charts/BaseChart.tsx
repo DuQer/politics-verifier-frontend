@@ -41,8 +41,8 @@ export const getDefaultTooltipStyles = (theme: ITheme): DefaultTooltipStyles => 
   borderWidth: 2,
   borderRadius: Number.parseInt(BORDER_RADIUS),
   textStyle: {
-    fontWeight: 600,
-    fontSize: 16,
+    fontWeight: 200,
+    fontSize: 10,
     color: theme.chartColor1,
   },
 });

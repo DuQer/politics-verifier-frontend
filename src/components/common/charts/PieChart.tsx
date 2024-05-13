@@ -4,6 +4,7 @@ import { BaseChart, BaseChartProps } from '@app/components/common/charts/BaseCha
 import { useAppSelector } from '@app/hooks/reduxHooks';
 import { themeObject } from '@app/styles/themes/themeVariables';
 import { BASE_COLORS } from '@app/styles/themes/constants';
+import { List } from 'echarts';
 
 interface PieChartProps extends BaseChartProps {
   option?: EChartsOption;
@@ -11,9 +12,10 @@ interface PieChartProps extends BaseChartProps {
   data?: any;
   name?: string;
   showLegend?: boolean;
+  rad?: List<string>;
 }
 
-export const PieChart: React.FC<PieChartProps> = ({ option, data, name, showLegend, ...props }) => {
+export const PieChart: React.FC<PieChartProps> = ({ option, data, name, showLegend, rad, ...props }) => {
   const theme = useAppSelector((state) => state.theme.theme);
 
   const defaultPieOption = {
@@ -22,8 +24,7 @@ export const PieChart: React.FC<PieChartProps> = ({ option, data, name, showLege
     },
     legend: {
       show: showLegend,
-      top: '0%',
-      left: 16,
+      left: 0,
       textStyle: {
         color: themeObject[theme].textMain,
       },
@@ -32,9 +33,9 @@ export const PieChart: React.FC<PieChartProps> = ({ option, data, name, showLege
       {
         name,
         type: 'pie',
-        top: showLegend ? '25%' : '10%',
-        bottom: '5%',
-        radius: ['55%', '100%'],
+        top: '0%',
+        bottom: '50%',
+        radius: rad ?? ['55%', '100%'],
         avoidLabelOverlap: false,
         itemStyle: {
           borderRadius: 5,
@@ -48,9 +49,9 @@ export const PieChart: React.FC<PieChartProps> = ({ option, data, name, showLege
         emphasis: {
           label: {
             show: true,
-            fontSize: '40',
+            fontSize: '20',
             fontWeight: 'bold',
-            color: themeObject[theme].textMain,
+            color: 'red',
           },
         },
         labelLine: {
@@ -60,5 +61,5 @@ export const PieChart: React.FC<PieChartProps> = ({ option, data, name, showLege
       },
     ],
   };
-  return <BaseChart {...props} option={{ ...defaultPieOption, ...option }} />;
+  return <BaseChart {...props} height="200px" option={{ ...defaultPieOption, ...option }} />;
 };

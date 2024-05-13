@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  LayoutOutlined,
-  LineChartOutlined,
-  TableOutlined,
-  BlockOutlined,
-} from '@ant-design/icons';
+import { LayoutOutlined, LineChartOutlined, TableOutlined, BlockOutlined, UserOutlined } from '@ant-design/icons';
 import { ReactComponent as NftIcon } from '@app/assets/icons/nft-icon.svg';
 
 export interface SidebarNavigationItem {
@@ -16,6 +11,12 @@ export interface SidebarNavigationItem {
 }
 
 export const sidebarNavigation: SidebarNavigationItem[] = [
+  {
+    title: 'common.deputies',
+    key: 'deputiesList',
+    url: '/deputies',
+    icon: <UserOutlined />,
+  },
   {
     title: 'common.nft-dashboard',
     key: 'nft-dashboard',

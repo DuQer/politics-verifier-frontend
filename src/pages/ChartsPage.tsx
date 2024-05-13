@@ -1,7 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { GradientStackedAreaChart } from '@app/components/charts/GradientStackedAreaChart/GradientStackedAreaChart';
-import { VisitorsPieChart } from '@app/components/charts/VisitorsPieChart';
 import { BarAnimationDelayChart } from '@app/components/charts/BarAnimationDelayChart/BarAnimationDelayChart';
 import { ScatterChart } from '@app/components/charts/ScatterChart/ScatterChart';
 import { LineRaceChart } from '@app/components/charts/LineRaceChart/LineRaceChart';
@@ -24,9 +23,6 @@ const ChartsPage: React.FC = () => {
         </BaseCol>
         <BaseCol id="bar-animation-delay" xs={24}>
           <BarAnimationDelayChart />
-        </BaseCol>
-        <BaseCol id="pie" xs={24} lg={12}>
-          <VisitorsPieChart />
         </BaseCol>
         <BaseCol id="scatter" xs={24} lg={12}>
           <ScatterChart />
