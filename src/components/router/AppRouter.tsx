@@ -6,6 +6,7 @@ import ProfileLayout from '@app/components/profile/ProfileLayout';
 import { withLoading } from '@app/hocs/withLoading.hoc';
 import NftDashboardPage from '@app/pages/DashboardPages/NftDashboardPage';
 
+const SingleDeputyPage = React.lazy(() => import('@app/pages/DeputyPage/DeputyPage'));
 const DeputiesPage = React.lazy(() => import('@app/pages/DeputiesPage/DeputiesPage'));
 const DataTablesPage = React.lazy(() => import('@app/pages/DataTablesPage'));
 const ChartsPage = React.lazy(() => import('@app/pages/ChartsPage'));
@@ -89,6 +90,7 @@ export const AppRouter: React.FC = () => {
       <Routes>
         <Route path={NFT_DASHBOARD_PATH} element={<MainLayout />}>
           <Route index element={<NftDashboard />} />
+          <Route path="deputy" element={<SingleDeputyPage />} />
           <Route path="deputies" element={<DeputiesPage />} />
           <Route path="data-tables" element={<DataTables />} />
           <Route path="charts" element={<Charts />} />

@@ -8,6 +8,7 @@ import { PageTitle } from '@app/components/common/PageTitle/PageTitle';
 import { BaseRow } from '@app/components/common/BaseRow/BaseRow';
 import { BaseCol } from '@app/components/common/BaseCol/BaseCol';
 import { DeputyCardComponent } from '@app/components/apps/DeputyCardComponent/DeputyCardComponent';
+import { DeputyProfileComponent } from '@app/components/apps/DeputyProfileComponent/DeputyProfileComponent';
 
 const DeputiesPage: React.FC = () => {
   const { t } = useTranslation();
@@ -27,6 +28,7 @@ const DeputiesPage: React.FC = () => {
           img_src="https://ocdn.eu/pulscms-transforms/1/yoPk9kpTURBXy9lZDgwM2Q5ZGM1NTQ5MGFhZjM0NGEyMmYwMDhhNWI3Ni5qcGeSlQMAzFPNB9DNBGWTBc0DmM0BzN4AAqEwBqExAQ"
         ></DeputyCardComponent>
       </BaseRow>
+
     </>
   );
 };
