@@ -1,17 +1,21 @@
 import { useRef, useState } from 'react';
 import * as S from './DeputyCardComponent.style';
-import lewicaLogo from 'assets/club_logos/koalicja-logo.png';
+import lewicaLogo from 'assets/club_logos/lewica-logo.jpg';
+import koalicjaLogo from 'assets/club_logos/koalicja-logo.png';
 
-export const DeputyCardComponent = ({
-  img_src,
-  name,
-  color,
-  club,
-}: {
-  img_src: string;
-  name: string;
-  club: string;
-}) => {
+const getClubLogo = (club: string): string | undefined => {
+  //! TODO: Add more clubs logos
+  switch (club) {
+    case 'lewica':
+      return lewicaLogo;
+    case 'koalicja':
+      return koalicjaLogo;
+    default:
+      return undefined;
+  }
+};
+
+export const DeputyCardComponent = ({ img_src, name, club }: { img_src: string; name: string; club: string }) => {
   const [isHovering, setIsHovering] = useState<boolean>(false);
   const [position, setPostion] = useState({ x: 0, y: 0 });
   const popupRef = useRef<HTMLDivElement>(null);
@@ -54,7 +58,7 @@ export const DeputyCardComponent = ({
         <S.NamePanel>
           <S.Name>{name}</S.Name>
           <S.Logo>
-            <img src={lewicaLogo} alt="" />
+            <img src={getClubLogo(club)} alt="" />
           </S.Logo>
         </S.NamePanel>
       </S.Card>

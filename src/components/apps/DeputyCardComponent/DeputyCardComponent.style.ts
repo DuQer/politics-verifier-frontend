@@ -53,7 +53,7 @@ export const Name = styled(BaseRow)`
   text-align: left;
   padding-left: 5px;
   align-content: center;
-  flex: 2;
+  flex: 1.8;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 10;
@@ -73,7 +73,7 @@ export const Logo = styled(BaseRow)`
   z-index: 10;
   pointer-events: none;
   padding: 0px;
-  margin-right: 1px;
+  margin-right: 0px;
   justify-content: center;
   justify-items: center;
 `;

@@ -17,12 +17,12 @@ const DeputiesPage: React.FC = () => {
       <PageTitle>{t('common.deputies')}</PageTitle>
       <BaseRow gutter={[30, 30]}>
         <DeputyCardComponent
-          club="Prawo i Sprawiedliwość"
+          club="lewica"
           name="Jarosław Kaczyński"
           img_src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Jaros%C5%82aw_Kaczy%C5%84ski%2C_15_March_2022_%28cropped%29.jpg/800px-Jaros%C5%82aw_Kaczy%C5%84ski%2C_15_March_2022_%28cropped%29.jpg"
         ></DeputyCardComponent>
         <DeputyCardComponent
-          club="Konfederacja"
+          club="koalicja"
           name="Grzegorz Braun"
           img_src="https://ocdn.eu/pulscms-transforms/1/yoPk9kpTURBXy9lZDgwM2Q5ZGM1NTQ5MGFhZjM0NGEyMmYwMDhhNWI3Ni5qcGeSlQMAzFPNB9DNBGWTBc0DmM0BzN4AAqEwBqExAQ"
         ></DeputyCardComponent>
