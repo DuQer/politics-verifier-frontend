@@ -3,7 +3,7 @@ import * as S from './DeputyCardComponent.style';
 import lewicaLogo from 'assets/club_logos/lewica-logo.jpg';
 import koalicjaLogo from 'assets/club_logos/koalicja-logo.png';
 
-const getClubLogo = (club: string): string | undefined => {
+export const getClubLogo = (club: string): string | undefined => {
   //! TODO: Add more clubs logos
   switch (club) {
     case 'lewica':
