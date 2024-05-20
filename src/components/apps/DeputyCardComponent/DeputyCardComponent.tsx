@@ -1,7 +1,9 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import * as S from './DeputyCardComponent.style';
 import lewicaLogo from 'assets/club_logos/lewica-logo.jpg';
 import koalicjaLogo from 'assets/club_logos/koalicja-logo.png';
+import { useNavigate } from 'react-router-dom';
+import { Deputy } from './interfaces/kybra_hello_world.did';
 
 export const getClubLogo = (club: string): string | undefined => {
   //! TODO: Add more clubs logos
@@ -15,10 +17,15 @@ export const getClubLogo = (club: string): string | undefined => {
   }
 };
 
-export const DeputyCardComponent = ({ img_src, name, club }: { img_src: string; name: string; club: string }) => {
+type PhotoSource = {
+  image_source: string;
+};
+
+export const DeputyCardComponent = (deputy: Deputy & PhotoSource) => {
   const [isHovering, setIsHovering] = useState<boolean>(false);
   const [position, setPostion] = useState({ x: 0, y: 0 });
   const popupRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   const handleMouseEnter = () => {
     setIsHovering(true);
@@ -44,30 +51,34 @@ export const DeputyCardComponent = ({ img_src, name, club }: { img_src: string; 
     }
   };
 
+  const handleClick = () => {
+    navigate(`/deputy`, { state: { deputy } });
+  };
+
   return (
     <>
-      <S.Card>
+      <S.Card onClick={handleClick}>
         <img
-          src={img_src}
-          alt=""
+          src={deputy.image_source}
+          alt="Image not found!"
           style={{ height: '100%', width: '100%' }}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
           onMouseMove={handleMouseMove}
         />
         <S.NamePanel>
-          <S.Name>{name}</S.Name>
+          <S.Name>{deputy.first_name + ' ' + deputy.last_name}</S.Name>
           <S.Logo>
-            <img src={getClubLogo(club)} alt="" />
+            <img src={getClubLogo(deputy.club)} alt="Image not found!" />
           </S.Logo>
         </S.NamePanel>
       </S.Card>
-      {isHovering && (
+      {/* {isHovering && (
         <S.Popup ref={popupRef} style={{ left: `${position.x}px`, top: `${position.y}px`, display: 'block' }}>
-          <p>{name}</p>
+          <p>{deputy.}</p>
           <p>{club}</p>
         </S.Popup>
-      )}
+      )} */}
     </>
   );
 };
