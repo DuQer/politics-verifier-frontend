@@ -45,6 +45,8 @@ export const NFT_DASHBOARD_PATH = '/';
 export const MEDICAL_DASHBOARD_PATH = '/medical-dashboard';
 
 const NftDashboard = withLoading(NftDashboardPage);
+const SingleDeputy = withLoading(SingleDeputyPage);
+const Deputies = withLoading(DeputiesPage);
 
 // UI Components
 const Buttons = withLoading(ButtonsPage);
@@ -90,8 +92,8 @@ export const AppRouter: React.FC = () => {
       <Routes>
         <Route path={NFT_DASHBOARD_PATH} element={<MainLayout />}>
           <Route index element={<NftDashboard />} />
-          <Route path="deputy" element={<SingleDeputyPage />} />
-          <Route path="deputies" element={<DeputiesPage />} />
+          <Route path="deputy" element={<SingleDeputy />} />
+          <Route path="deputies" element={<Deputies />} />
           <Route path="data-tables" element={<DataTables />} />
           <Route path="charts" element={<Charts />} />
           <Route path="server-error" element={<ServerError />} />

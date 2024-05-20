@@ -1,20 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import * as S from './DeputyCardComponent.style';
-import lewicaLogo from 'assets/club_logos/lewica-logo.jpg';
-import koalicjaLogo from 'assets/club_logos/koalicja-logo.png';
 import { useNavigate } from 'react-router-dom';
 import { Deputy } from './interfaces/kybra_hello_world.did';
 
+import lewicaLogo from 'assets/club_logos/lewica-logo.jpg';
+import koalicjaLogo from 'assets/club_logos/koalicja-logo.png';
+
 export const getClubLogo = (club: string): string | undefined => {
-  //! TODO: Add more clubs logos
-  switch (club) {
-    case 'lewica':
-      return lewicaLogo;
-    case 'koalicja':
-      return koalicjaLogo;
-    default:
-      return undefined;
-  }
+  return require(`assets/club_logos/${club}-logo.png`).default;
 };
 
 type PhotoSource = {
