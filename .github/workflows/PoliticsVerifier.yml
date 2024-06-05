@@ -1,31 +1,58 @@
-name: Build and Test
+name: Politics Verifier Frontend
 
 on:
   push:
     branches:
       - main
+      # Triggers the workflow on pushes to the 'main' branch.
   pull_request:
     branches:
       - main
+      # Triggers the workflow on pull requests to the 'main' branch.
 
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+    # Specifies the type of runner that the job will run on.
     strategy:
       matrix:
         node-version: [18.x]
+        # Defines a matrix strategy to run the job with Node.js version 18.x.
 
     steps:
       - uses: actions/checkout@v3
+        # Checks out the repository code so that the workflow can access it.
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+        # Sets up Node.js version 18.x for use in the workflow.
+
       - name: Install dependencies
         run: yarn install
         env:
           NODE_OPTIONS: --openssl-legacy-provider
+        # Installs the project dependencies using Yarn and sets the NODE_OPTIONS environment variable to use the OpenSSL legacy provider.
+
       - name: Build
         run: yarn build
         env:
           NODE_OPTIONS: --openssl-legacy-provider
+        # Builds the project using Yarn and sets the NODE_OPTIONS environment variable to use the OpenSSL legacy provider.
+
+  security-scans:
+    runs-on: ubuntu-latest
+    # Specifies the type of runner that the job will run on.
+
+    steps:
+      - uses: actions/checkout@v4
+        # Checks out the repository code so that the workflow can access it.
+
+      - name: Install Snyk
+        run: yarn dlx snyk@latest auth ${{ secrets.SNYK_TOKEN }}
+        # Uses Yarn dlx to install and authenticate Snyk with the provided token.
+
+      - name: Scan dependencies for security vulnerabilities
+        run: yarn dlx snyk@latest test
+        # Runs a security scan on the project dependencies using Snyk via Yarn dlx.
