@@ -33,15 +33,13 @@ jobs:
         run: yarn install
         env:
           NODE_OPTIONS: --openssl-legacy-provider
-        # Installs the project dependencies using Yarn and sets the NODE_OPTIONS
-        # environment variable to use the OpenSSL legacy provider.
+        # Installs the project dependencies using Yarn and sets the NODE_OPTIONS environment variable to use the OpenSSL legacy provider.
 
       - name: Build
         run: yarn build
         env:
           NODE_OPTIONS: --openssl-legacy-provider
-        # Builds the project using Yarn and sets the NODE_OPTIONS environment
-        # variable to use the OpenSSL legacy provider.
+        # Builds the project using Yarn and sets the NODE_OPTIONS environment variable to use the OpenSSL legacy provider.
 
   security-scans:
     runs-on: ubuntu-latest
